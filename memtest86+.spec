@@ -10,7 +10,6 @@ License:	GPL
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	ad695a98176279d55c5c86469556351b
-# Source0-size:	159096
 Patch0:		%{name}-i686-ld.patch
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
