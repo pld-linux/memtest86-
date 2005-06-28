@@ -4,12 +4,12 @@ Summary(pt_BR):	Testador de memСria completo e independente para sistemas i386
 Summary(ru_RU):	Тест памяти для x86-архитектуры
 Summary(uk_UA):	Тест пам'ят╕ для x86-арх╕тектури
 Name:		memtest86+
-Version:	1.55
+Version:	1.60
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	944b0d4b2058defb000862d7ee3a3b1c
+# Source0-md5:	35bfeca7a704403068de71a7b480bf5f
 Patch0:		%{name}-i686-ld.patch
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
