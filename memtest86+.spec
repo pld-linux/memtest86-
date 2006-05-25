@@ -1,8 +1,8 @@
 Summary:	Thorough, stand alone memory test for i386 systems
 Summary(pl):	Kompleksowy, niezale©ny od OS tester pamiЙci dla systemСw i386
 Summary(pt_BR):	Testador de memСria completo e independente para sistemas i386
-Summary(ru_RU):	Тест памяти для x86-архитектуры
-Summary(uk_UA):	Тест пам'ят╕ для x86-арх╕тектури
+Summary(ru):	Тест памяти для x86-архитектуры
+Summary(uk):	Тест пам'ят╕ для x86-арх╕тектури
 Name:		memtest86+
 Version:	1.65
 Release:	1
