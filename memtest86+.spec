@@ -1,8 +1,8 @@
 Summary:	Thorough, stand alone memory test for i386 systems
-Summary(pl):	Kompleksowy, niezale©ny od OS tester pamiЙci dla systemСw i386
-Summary(pt_BR):	Testador de memСria completo e independente para sistemas i386
-Summary(ru):	Тест памяти для x86-архитектуры
-Summary(uk):	Тест пам'ят╕ для x86-арх╕тектури
+Summary(pl.UTF-8):   Kompleksowy, niezaleе╪ny od OS tester pamiд≥ci dla systemцЁw i386
+Summary(pt_BR.UTF-8):   Testador de memцЁria completo e independente para sistemas i386
+Summary(ru.UTF-8):   п╒п╣я│я┌ п©п╟п╪я▐я┌п╦ п╢п╩я▐ x86-п╟я─я┘п╦я┌п╣п╨я┌я┐я─я▀
+Summary(uk.UTF-8):   п╒п╣я│я┌ п©п╟п╪'я▐я┌я√ п╢п╩я▐ x86-п╟я─я┘я√я┌п╣п╨я┌я┐я─п╦
 Name:		memtest86+
 Version:	1.70
 Release:	1
@@ -24,40 +24,40 @@ thorough, stand alone memory test for i386 architecture systems. BIOS
 based memory tests are only a quick check and often miss failures that
 are detected by Memtest86.
 
-%description -l pl
-Memtest86 jest ci╠gЁym, samodzielnym testerem pamiЙci dla systemСw
-architektury i386. Testy pamiЙci przez BIOS s╠ tylko szybkim
-sprawdzeniem i zazwyczaj nie wykrywaj╠ bЁЙdСw znajdywanych przez
+%description -l pl.UTF-8
+Memtest86 jest ciд┘gе┌ym, samodzielnym testerem pamiд≥ci dla systemцЁw
+architektury i386. Testy pamiд≥ci przez BIOS sд┘ tylko szybkim
+sprawdzeniem i zazwyczaj nie wykrywajд┘ bе┌д≥dцЁw znajdywanych przez
 memtest86.
 
-%description -l pt_BR
-Memtest86 И um testador de memСria independente (no sentido de que nЦo
+%description -l pt_BR.UTF-8
+Memtest86 ц╘ um testador de memцЁria independente (no sentido de que nцёo
 roda sob um sistema operacional) e completo para sistemas i386.
 
-%description -l ru
-Memtest86 -- тщательный и самостоятельный тест памяти для x86-систем.
-Он может быть загружен или с жесткого диска при помощи LILO/GRUB, или
-с дискеты.
+%description -l ru.UTF-8
+Memtest86 -- я┌я┴п╟я┌п╣п╩я▄п╫я▀п╧ п╦ я│п╟п╪п╬я│я┌п╬я▐я┌п╣п╩я▄п╫я▀п╧ я┌п╣я│я┌ п©п╟п╪я▐я┌п╦ п╢п╩я▐ x86-я│п╦я│я┌п╣п╪.
+п·п╫ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п╥п╟пЁя─я┐п╤п╣п╫ п╦п╩п╦ я│ п╤п╣я│я┌п╨п╬пЁп╬ п╢п╦я│п╨п╟ п©я─п╦ п©п╬п╪п╬я┴п╦ LILO/GRUB, п╦п╩п╦
+я│ п╢п╦я│п╨п╣я┌я▀.
 
-Тест использует алгоритм "движущихся инверсий", доказавший свою
-эффективность при обнаружении сбоев памяти. Не обращайте внимания на
-"тест" BIOS -- он практически ничего не значит, так как пропустит
-много ошибок из тех, которые обнаружит memtest86.
+п╒п╣я│я┌ п╦я│п©п╬п╩я▄п╥я┐п╣я┌ п╟п╩пЁп╬я─п╦я┌п╪ "п╢п╡п╦п╤я┐я┴п╦я┘я│я▐ п╦п╫п╡п╣я─я│п╦п╧", п╢п╬п╨п╟п╥п╟п╡я┬п╦п╧ я│п╡п╬я▌
+я█я└я└п╣п╨я┌п╦п╡п╫п╬я│я┌я▄ п©я─п╦ п╬п╠п╫п╟я─я┐п╤п╣п╫п╦п╦ я│п╠п╬п╣п╡ п©п╟п╪я▐я┌п╦. п²п╣ п╬п╠я─п╟я┴п╟п╧я┌п╣ п╡п╫п╦п╪п╟п╫п╦я▐ п╫п╟
+"я┌п╣я│я┌" BIOS -- п╬п╫ п©я─п╟п╨я┌п╦я┤п╣я│п╨п╦ п╫п╦я┤п╣пЁп╬ п╫п╣ п╥п╫п╟я┤п╦я┌, я┌п╟п╨ п╨п╟п╨ п©я─п╬п©я┐я│я┌п╦я┌
+п╪п╫п╬пЁп╬ п╬я┬п╦п╠п╬п╨ п╦п╥ я┌п╣я┘, п╨п╬я┌п╬я─я▀п╣ п╬п╠п╫п╟я─я┐п╤п╦я┌ memtest86.
 
-Также может использоваться для создания загрузочной тест-дискеты.
+п╒п╟п╨п╤п╣ п╪п╬п╤п╣я┌ п╦я│п©п╬п╩я▄п╥п╬п╡п╟я┌я▄я│я▐ п╢п╩я▐ я│п╬п╥п╢п╟п╫п╦я▐ п╥п╟пЁя─я┐п╥п╬я┤п╫п╬п╧ я┌п╣я│я┌-п╢п╦я│п╨п╣я┌я▀.
 
-%description -l uk
-Memtest86 -- ретельний та самост╕йний тест пам'ят╕ для x86-систем. В╕н
-може бути завантажений як з жорсткого диску за допомогою LILO/GRUB,
-так ╕ з дискети.
+%description -l uk.UTF-8
+Memtest86 -- я─п╣я┌п╣п╩я▄п╫п╦п╧ я┌п╟ я│п╟п╪п╬я│я┌я√п╧п╫п╦п╧ я┌п╣я│я┌ п©п╟п╪'я▐я┌я√ п╢п╩я▐ x86-я│п╦я│я┌п╣п╪. п▓я√п╫
+п╪п╬п╤п╣ п╠я┐я┌п╦ п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫п╦п╧ я▐п╨ п╥ п╤п╬я─я│я┌п╨п╬пЁп╬ п╢п╦я│п╨я┐ п╥п╟ п╢п╬п©п╬п╪п╬пЁп╬я▌ LILO/GRUB,
+я┌п╟п╨ я√ п╥ п╢п╦я│п╨п╣я┌п╦.
 
-Тест використову╓ алгоритм "рухаючихся ╕нверс╕й", який дов╕в свою
-ефективн╕сть при визначенн╕ негаразд╕в ╕з пам'яттю. Не звертайте уваги
-на "тест" BIOS -- в╕н практично н╕чого не означа╓, тому що пройде повз
-багатьох збо╖в з тих, що знаходить memtest86.
+п╒п╣я│я┌ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐я■ п╟п╩пЁп╬я─п╦я┌п╪ "я─я┐я┘п╟я▌я┤п╦я┘я│я▐ я√п╫п╡п╣я─я│я√п╧", я▐п╨п╦п╧ п╢п╬п╡я√п╡ я│п╡п╬я▌
+п╣я└п╣п╨я┌п╦п╡п╫я√я│я┌я▄ п©я─п╦ п╡п╦п╥п╫п╟я┤п╣п╫п╫я√ п╫п╣пЁп╟я─п╟п╥п╢я√п╡ я√п╥ п©п╟п╪'я▐я┌я┌я▌. п²п╣ п╥п╡п╣я─я┌п╟п╧я┌п╣ я┐п╡п╟пЁп╦
+п╫п╟ "я┌п╣я│я┌" BIOS -- п╡я√п╫ п©я─п╟п╨я┌п╦я┤п╫п╬ п╫я√я┤п╬пЁп╬ п╫п╣ п╬п╥п╫п╟я┤п╟я■, я┌п╬п╪я┐ я┴п╬ п©я─п╬п╧п╢п╣ п©п╬п╡п╥
+п╠п╟пЁп╟я┌я▄п╬я┘ п╥п╠п╬я≈п╡ п╥ я┌п╦я┘, я┴п╬ п╥п╫п╟я┘п╬п╢п╦я┌я▄ memtest86.
 
-Також може використовуватися для створення завантажувально╖
-тест-дискети.
+п╒п╟п╨п╬п╤ п╪п╬п╤п╣ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐п╡п╟я┌п╦я│я▐ п╢п╩я▐ я│я┌п╡п╬я─п╣п╫п╫я▐ п╥п╟п╡п╟п╫я┌п╟п╤я┐п╡п╟п╩я▄п╫п╬я≈
+я┌п╣я│я┌-п╢п╦я│п╨п╣я┌п╦.
 
 %prep
 %setup -q
