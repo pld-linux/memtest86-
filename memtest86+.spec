@@ -75,12 +75,12 @@ Obraz memtest86+ dla rc-boot.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CCFLAGS="%{rpmcflags} -fomit-frame-pointer -fno-builtin" \
+	CCFLAGS="%{rpmcflags} -m32 -fomit-frame-pointer -fno-builtin -ffreestanding" \
 	SHELL=/bin/sh
 
 %install
