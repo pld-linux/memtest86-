@@ -1,0 +1,3 @@
+TYPE=Linux
+ROOT=/dev/ram0
+KERNEL=/boot/memtest86+.vmlinuz
