@@ -6,7 +6,7 @@ Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
 Version:	1.70
 Release:	2
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	ee447fa46b75cf98538fa60667eb079d
@@ -64,7 +64,7 @@ Memtest86 -- ретельний та самостійний тест пам'ят
 Summary:	memtest86+ image for rc-boot
 Summary(pl.UTF-8):	Obraz memtest86+ dla rc-boot
 Group:		Base
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	rc-boot
 
 %description -n rc-boot-image-memtest86+
@@ -97,12 +97,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun -n rc-boot-image-memtest86+
 if [ -x /sbin/rc-boot ]; then
-    /sbin/rc-boot 1>&2 || :
+	/sbin/rc-boot 1>&2 || :
 fi
 
 %post -n rc-boot-image-memtest86+
 if [ -x /sbin/rc-boot ]; then
-    /sbin/rc-boot 1>&2 || :
+	/sbin/rc-boot 1>&2 || :
 fi
 
 %files
