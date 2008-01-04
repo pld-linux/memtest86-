@@ -96,14 +96,10 @@ install memtest.bin $RPM_BUILD_ROOT/boot/%{name}.vmlinuz
 rm -rf $RPM_BUILD_ROOT
 
 %postun -n rc-boot-image-memtest86+
-if [ -x /sbin/rc-boot ]; then
-	/sbin/rc-boot 1>&2 || :
-fi
+/sbin/rc-boot 1>&2 || :
 
 %post -n rc-boot-image-memtest86+
-if [ -x /sbin/rc-boot ]; then
-	/sbin/rc-boot 1>&2 || :
-fi
+/sbin/rc-boot 1>&2 || :
 
 %files
 %defattr(644,root,root,755)
