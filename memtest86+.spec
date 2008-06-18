@@ -11,7 +11,6 @@ Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	e849eaf4ff3f6f4d7aff32d3dfa1b32c
 Source1:	%{name}.image
-#Patch0:		%{name}-i686-ld.patch
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -75,12 +74,11 @@ Obraz memtest86+ dla rc-boot.
 
 %prep
 %setup -q
-#%patch0 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CCFLAGS="%{rpmcflags} -m32 -fomit-frame-pointer -fno-builtin -ffreestanding" \
+	CFLAGS="%{rpmcflags} -m32 -fomit-frame-pointer -fno-builtin -ffreestanding -fPIC" \
 	SHELL=/bin/sh
 
 %install
