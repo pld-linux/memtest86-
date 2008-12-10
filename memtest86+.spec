@@ -88,7 +88,7 @@ install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images/%{name}
 
 install -d $RPM_BUILD_ROOT/boot
-install memtest.bin $RPM_BUILD_ROOT/boot/%{name}.vmlinuz
+install memtest.bin $RPM_BUILD_ROOT/boot/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -102,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-/boot/%{name}.vmlinuz
+/boot/%{name}
 
 %files -n rc-boot-image-memtest86+
 %defattr(644,root,root,755)
