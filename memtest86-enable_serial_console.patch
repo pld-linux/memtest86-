@@ -1,0 +1,12 @@
+diff -dur -x '*~' memtest86-3.2.orig/config.h memtest86-3.2/config.h
+--- memtest86-3.2.orig/config.h	2004-04-06 18:29:28.000000000 +0200
++++ memtest86-3.2/config.h	2009-02-25 10:33:48.000000000 +0100
+@@ -13,7 +13,7 @@
+ /* SERIAL_CONSOLE_DEFAULT -  The default state of the serial console. */
+ /*	This is normally off since it slows down testing.  Change to a 1 */
+ /*	to enable. */
+-#define SERIAL_CONSOLE_DEFAULT 0
++#define SERIAL_CONSOLE_DEFAULT 1
+ 
+ /* SERIAL_BAUD_RATE - Baud rate for the serial console
+  * If this is not defined it is assumed a previous program has set the
