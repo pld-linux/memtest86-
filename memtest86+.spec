@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	serial_console	# enable serial console support
+#
 Summary:	Thorough, stand alone memory test for i386 systems
 Summary(pl.UTF-8):	Kompleksowy, niezależny od OS tester pamięci dla systemów i386
 Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas i386
@@ -5,12 +9,13 @@ Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
 Version:	2.10
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	9ca90f6225b5fa4ed1334583c3d6b855
 Source1:	%{name}.image
+Patch0:		memtest86-enable_serial_console.patch
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -74,6 +79,7 @@ Obraz memtest86+ dla rc-boot.
 
 %prep
 %setup -q
+%{?with_serial_console:%patch0 -p1}
 
 %build
 %{__make} \
