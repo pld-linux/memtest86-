@@ -8,15 +8,14 @@ Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas
 Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
-Version:	2.11
-Release:	2
+Version:	4.00
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	e457774139c0bfef899359df91f49b3e
+# Source0-md5:	898cfc5ff7920a8c396ebe898ac2eaa5
 Source1:	%{name}.image
-Patch0:		%{name}-make-gcc4-builds-work.patch
-Patch1:		memtest86-enable_serial_console.patch
+Patch0:		memtest86-enable_serial_console.patch
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -80,8 +79,7 @@ Obraz memtest86+ dla rc-boot.
 
 %prep
 %setup -q
-%patch0 -p1
-%{?with_serial_console:%patch1 -p1}
+%{?with_serial_console:%patch0 -p1}
 
 %build
 %{__make} \
