@@ -8,12 +8,12 @@ Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas
 Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
-Version:	4.00
+Version:	4.10
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	898cfc5ff7920a8c396ebe898ac2eaa5
+# Source0-md5:	2144f21d4489a04149b1891b8d97e8fc
 Source1:	%{name}.image
 Patch0:		memtest86-enable_serial_console.patch
 URL:		http://www.memtest.org/
