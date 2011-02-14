@@ -99,9 +99,15 @@ cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
 rm -rf $RPM_BUILD_ROOT
 
 %postun -n rc-boot-image-memtest86+
+if [ -x /sbin/grubby ]; then
+	/sbin/grubby --add-kernel=/boot/%{name} --title="Memtest86+ %{version}" --remove-kernel="TITLE=Memtest86+ %{version}"
+fi
 /sbin/rc-boot 1>&2 || :
 
 %post -n rc-boot-image-memtest86+
+if [ "$1" = 0 ] && [ -x /sbin/grubby ]; then
+	/sbin/grubby --remove-kernel=/boot/%{name}
+fi
 /sbin/rc-boot 1>&2 || :
 
 %files
