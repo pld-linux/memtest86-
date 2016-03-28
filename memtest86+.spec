@@ -1,6 +1,8 @@
 #
 # Conditional build:
-%bcond_with	serial_console	# enable serial console support
+%bcond_with	serial_console	# enable serial console BY DEFAULT
+#		This is normally off since it slows down testing
+#		Instead, one can just append console=ttyS0,9600
 
 Summary:	Thorough, stand alone memory test for i386 systems
 Summary(pl.UTF-8):	Kompleksowy, niezależny od OS tester pamięci dla systemów i386
@@ -8,14 +10,17 @@ Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas
 Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
-Version:	4.20
-Release:	2
+Version:	5.01
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	ef62c2f5be616676c8c62066dedc46b3
+# Source0-md5:	43c5832baa919e1206e251e735cdee2d
 Source1:	%{name}.image
 Patch0:		memtest86-enable_serial_console.patch
+# 3rd party patches:
+# http://forum.canardpc.com/threads/100822-patch-build-under-linux-%28gcc-5-2%29
+# http://forum.canardpc.com/threads/103343-patch-regression-memtest86-5-01-doesn-t-work-with-grub-legacy
 URL:		http://www.memtest.org/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,18 +87,18 @@ Obraz memtest86+ dla rc-boot.
 %{?with_serial_console:%patch0 -p1}
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -m32 -fomit-frame-pointer -fno-builtin -ffreestanding -fPIC" \
-	SHELL=/bin/sh
+# 1. DO NOT mess with CFLAGS or any other compiler magic, the autor knows better: README.build-process
+# 2. actually, until ELF version is needed (for systems short on low-memory), use zImage provided
+#%%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/boot
+#cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
+cp -p precomp.bin $RPM_BUILD_ROOT/boot/%{name}
+
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images
 cp -p %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images/%{name}
-
-install -d $RPM_BUILD_ROOT/boot
-cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -112,7 +117,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc FAQ README* changelog
 /boot/%{name}
 
 %files -n rc-boot-image-memtest86+
