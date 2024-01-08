@@ -10,20 +10,21 @@ Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas
 Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
-Version:	5.01
+Version:	7.00
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	43c5832baa919e1206e251e735cdee2d
+Source0:	http://www.memtest.org/download/v%{version}/mt86plus_%{version}.src.zip
+# Source0-md5:	7b1e5c86e892f76501c9f2a3e0cc303a
 Source1:	%{name}.image
 Patch0:		memtest86-enable_serial_console.patch
 # 3rd party patches:
 # http://forum.canardpc.com/threads/100822-patch-build-under-linux-%28gcc-5-2%29
 # http://forum.canardpc.com/threads/103343-patch-regression-memtest86-5-01-doesn-t-work-with-grub-legacy
 URL:		http://www.memtest.org/
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+%define		_debugsource_packages 0
 
 %description
 Based on the well-known original memtest86 written by Chris Brady,
@@ -83,19 +84,33 @@ memtest86+ image for rc-boot.
 Obraz memtest86+ dla rc-boot.
 
 %prep
-%setup -q
+%setup -q -c
 %{?with_serial_console:%patch0 -p1}
 
 %build
 # 1. DO NOT mess with CFLAGS or any other compiler magic, the autor knows better: README.build-process
 # 2. actually, until ELF version is needed (for systems short on low-memory), use zImage provided
-#%%{__make}
+
+%ifarch %{x8664}
+cd build64
+%else
+cd build32
+%endif
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/boot
-#cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
-cp -p precomp.bin $RPM_BUILD_ROOT/boot/%{name}
+
+%ifarch %{x8664}
+cd build64
+%else
+cd build32
+%endif
+
+cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
+cp -p memtest.efi $RPM_BUILD_ROOT/boot/%{name}.efi
 
 install -d $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images
 cp -p %{SOURCE1} $RPM_BUILD_ROOT/etc/sysconfig/rc-boot/images/%{name}
@@ -117,8 +132,9 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc FAQ README* changelog
+%doc README*
 /boot/%{name}
+/boot/%{name}.efi
 
 %files -n rc-boot-image-memtest86+
 %defattr(644,root,root,755)
