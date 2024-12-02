@@ -10,12 +10,12 @@ Summary(pt_BR.UTF-8):	Testador de memória completo e independente para sistemas
 Summary(ru.UTF-8):	Тест памяти для x86-архитектуры
 Summary(uk.UTF-8):	Тест пам'яті для x86-архітектури
 Name:		memtest86+
-Version:	7.00
+Version:	7.20
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.memtest.org/download/v%{version}/mt86plus_%{version}.src.zip
-# Source0-md5:	7b1e5c86e892f76501c9f2a3e0cc303a
+# Source0-md5:	533b1eee34fa4dfeea77304a2f80d115
 Source1:	%{name}.image
 Patch0:		memtest86-enable_serial_console.patch
 # 3rd party patches:
@@ -92,9 +92,9 @@ Obraz memtest86+ dla rc-boot.
 # 2. actually, until ELF version is needed (for systems short on low-memory), use zImage provided
 
 %ifarch %{x8664}
-cd build64
+cd src/build64
 %else
-cd build32
+cd src/build32
 %endif
 
 %{__make}
@@ -104,9 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/boot
 
 %ifarch %{x8664}
-cd build64
+cd src/build64
 %else
-cd build32
+cd src/build32
 %endif
 
 cp -p memtest.bin $RPM_BUILD_ROOT/boot/%{name}
@@ -132,7 +132,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc README*
+%doc src/README*
 /boot/%{name}
 /boot/%{name}.efi
 
